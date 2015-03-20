@@ -55,3 +55,7 @@ names(mergedData)<-gsub("^f", "frequency", names(mergedData))
 
 
 #--Creates a second, independent tidy data set with the average of each variable for each activity and each subject.----#
+#create data without the columns Subject and Activity
+len <- length(names(mergedData)) - 2 #omit the Activity and Subject columns
+avgData <- ddply(mergedData, c("Subject","Activity"), function(dataset) colMeans(dataset[, 1:len]))
+write.table(avgData,"avg_data.txt",row.name=F)
