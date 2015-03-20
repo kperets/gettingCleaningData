@@ -27,7 +27,15 @@ subjectMerged <- cbind(subjectJoined, yJoined)
 mergedData <- cbind(xJoined, subjectMerged)
 
 #---Extracts only the measurements on the mean and standard deviation for each measurement-------------#
-
+#the features table has all mean and std features stated with mean()/std() e.g:"fBodyBodyGyroMag-mean()"
+#note that () must be escaped in order to get exactly mean() and not features like "fBodyBodyGyroJerkMag-meanFreq()"
+featureNames <- features$V2
+meanIndices <- grep("mean\\(\\)",features$V2)
+stdIndices <- grep("std\\(\\)",features$V2)
+meanOrStdIndices <- c(meanIndices,stdIndices)
+meanOrStdFeatures <- featureNames[meanOrStdIndices]
+selectedNames<-c(as.character(meanOrStdFeatures), "Subject", "Activity" )
+mergedData<-subset(mergedData,select=selectedNames)
 
 
 #-------Uses descriptive activity names to name the activities in the data set-----------#
