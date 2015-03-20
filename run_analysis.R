@@ -46,7 +46,12 @@ factorizedData <- factor(mergedData$Activity, labels = activityNames)
 mergedData$Activity <- factorizedData
 
 #-----Appropriately labels the data set with descriptive variable names.--------------#
-
+#in week 3: Variable names should be
+  # Descriptive (DX vs Diagnosis)
+names(mergedData)<-gsub("Acc", "Accelerometer", names(mergedData))
+names(mergedData)<-gsub("Mag", "Magnitude", names(mergedData))
+names(mergedData)<-gsub("^t", "time", names(mergedData))
+names(mergedData)<-gsub("^f", "frequency", names(mergedData))
 
 
 #--Creates a second, independent tidy data set with the average of each variable for each activity and each subject.----#
