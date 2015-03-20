@@ -17,10 +17,9 @@ This CodeBook describes the work and variables used in *run_analysis.R* to achei
 ###Task 3
 
 -The map between activity number and its name is defined in *activity_labels.txt* from the original data set:
-  -1 WALKING
-  -2 WALKING_UPSTAIRS
-  -3 WALKING_DOWNSTAIRS
-  -4 SITTING
-  -5 STANDING
-  -6 LAYING
--
+  * 1 WALKING
+  * 2 WALKING_UPSTAIRS
+  * 3 WALKING_DOWNSTAIRS
+  * 4 SITTING
+  * 5 STANDING
+  * 6 LAYING
