@@ -39,7 +39,11 @@ mergedData<-subset(mergedData,select=selectedNames)
 
 
 #-------Uses descriptive activity names to name the activities in the data set-----------#
-
+activityNamesEnum <- read.table(file.path(dataPath, "activity_labels.txt"),header = FALSE)
+#activityNamesEnum now holds the enumerations of activities 1-6 in column V2
+activityNames <- activityNamesEnum$V2
+factorizedData <- factor(mergedData$Activity, labels = activityNames)
+mergedData$Activity <- factorizedData
 
 #-----Appropriately labels the data set with descriptive variable names.--------------#
 
